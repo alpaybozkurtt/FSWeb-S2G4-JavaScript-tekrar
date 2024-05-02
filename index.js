@@ -50,8 +50,9 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yariCap) {
+  const cevre = 2 * yariCap * pi;
+  return cevre;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +65,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yariCap, pi) {
+  const alan = Math.pow(yariCap, 2) * pi;
+  return alan;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -98,28 +100,58 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+let enBuyuk = sayilar[0];
+let enKucuk = sayilar[0];
 
-/* kodlar buraya */
+for (let i = 0; i < sayilar.length; i++) {
+  if (sayilar[i] > enBuyuk) {
+    enBuyuk = sayilar[i];
+  }
+  if (sayilar[i] < enKucuk) {
+    enKucuk = sayilar[i];
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+let uceTamBolunenler = [];
+
+sayilar.forEach(sayi => {
+  if(sayi % 3 === 0) {
+    uceTamBolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+const uceBolunenlerinToplami = uceTamBolunenler.reduce((toplam, baslangicDegeri) => (toplam + baslangicDegeri), 0);
 
 // 3d çözümü
 
-/* kodlar buraya */
+const besYuzdenKucukSayilar = sayilar.filter(sayi => sayi < 500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+const siraliSayilar = besYuzdenKucukSayilar.sort((a, b) => a - b);
 
 // 3f çözümü
 
-/* kodlar buraya */
+const tekrarEdenSayilar = [];
+const tekrarSayisi = {};
+
+sayilar.forEach(sayi => {
+  if(tekrarSayisi[sayi]) {
+    tekrarSayisi[sayi] += 1;
+  } else {
+    tekrarSayisi = 1;
+  }
+});
+
+for (sayi in tekrarSayisi) {
+  const tekrarAdedi = tekrarSayisi[sayi];
+  const tekrarIfadesi = `${sayi} sayısı ${tekrarAdedi} kere tekrar edilmiştir.`;
+  tekrarEdenSayilar.push(tekrarIfadesi);
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
